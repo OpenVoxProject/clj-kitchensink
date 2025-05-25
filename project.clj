@@ -1,5 +1,6 @@
-(defproject puppetlabs/kitchensink "3.4.1-SNAPSHOT"
+(defproject org.openvoxproject/kitchensink "3.4.1"
   :description "Clojure utility functions"
+  :url "https://github.com/openvoxproject/clj-kitchensink"
   :license {:name "Apache License, Version 2.0"
             :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
 
@@ -53,9 +54,7 @@
 
   :test-selectors {:default (complement :slow)
                    :slow :slow}
-
-  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
-                                     :username :env/clojars_jenkins_username
-                                     :password :env/clojars_jenkins_password
-                                     :sign-releases false}]
-                        ["snapshots" "http://nexus.delivery.puppetlabs.net/content/repositories/snapshots/"]])
+  :deploy-repositories [["clojars" {:url "https://clojars.org/repo"
+                                     :username :env/CLOJARS_USERNAME
+                                     :password :env/CLOJARS_PASSWORD
+                                     :sign-releases false}]])

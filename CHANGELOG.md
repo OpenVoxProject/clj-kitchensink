@@ -1,5 +1,9 @@
 ## unreleased
 
+## 3.4.1
+
+* Migrate from Puppetlabs to OpenVoxProject
+
 ## 3.4.0
 * add new JSON encoders for java.time Instant, LocalDate, and LocalDateTime
 
