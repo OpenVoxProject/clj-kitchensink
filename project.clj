@@ -39,7 +39,7 @@
   ;; this plugin is used by jenkins jobs to interrogate the project version
   :plugins [[lein-project-version "0.1.0"]
             [jonase/eastwood "1.2.2" :exclusions [org.clojure/clojure]]
-            [lein-parent "0.3.7"]]
+            [lein-parent "0.3.9"]]
 
   :eastwood {:ignored-faults {:unused-ret-vals {puppetlabs.kitchensink.classpath [{:line 93}]}
                               :deprecations {puppetlabs.kitchensink.classpath [{:line 66}
