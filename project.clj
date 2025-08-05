@@ -26,7 +26,7 @@
 
                  [org.ini4j/ini4j "0.5.4"]
                  [org.tcrawley/dynapath]
-                 [digest "1.4.3"]]
+                 [digest "1.4.10"]]
 
   ;; By declaring a classifier here and a corresponding profile below we'll get an additional jar
   ;; during `lein jar` that has all the code in the test/ directory. Downstream projects can then
