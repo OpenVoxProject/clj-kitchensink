@@ -1,4 +1,4 @@
-# puppetlabs/kitchensink
+# org.openvoxproject/kitchensink
 
 A library of utility functions that are common to several Puppet Labs
 clojure projects.
@@ -7,7 +7,7 @@ clojure projects.
 
 Add the following dependency to your `project.clj` file:
 
-[![Clojars Project](http://clojars.org/puppetlabs/kitchensink/latest-version.svg)](http://clojars.org/puppetlabs/kitchensink)
+[![Clojars Project](https://img.shields.io/clojars/v/org.openvoxproject/kitchensink.svg)](https://clojars.org/org.openvoxproject/kitchensink)
 
 ## Using Our Test Utils
 
@@ -17,7 +17,7 @@ The code is available in a separate "test" jar that you may depend on by using a
 ```clojure
   (defproject yourproject "1.0.0"
     ...
-    :profiles {:test {:dependencies [[puppetlabs/kitchensink "x.y.z" :classifier "test"]]}})
+    :profiles {:test {:dependencies [[org.openvoxproject/kitchensink "x.y.z" :classifier "test"]]}})
 ```
 
 ## License
@@ -28,4 +28,4 @@ Distributed under the [Apache License, version 2](http://www.apache.org/licenses
 
 ## Support
 
-Please log tickets and issues at our [Trapperkeeper JIRA tracker](https://tickets.puppetlabs.com/browse/TK).
+Please log tickets and issues at our [GitHub issues tracker](https://github.com/OpenVoxProject/clj-kitchensink/issues).
