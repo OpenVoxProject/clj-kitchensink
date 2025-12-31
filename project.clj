@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/kitchensink "3.4.2-SNAPSHOT"
+(defproject org.openvoxproject/kitchensink "3.4.3-SNAPSHOT"
   :description "Clojure utility functions"
   :url "https://github.com/openvoxproject/clj-kitchensink"
   :license {:name "Apache License, Version 2.0"
@@ -6,7 +6,7 @@
 
   :min-lein-version "2.9.1"
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.0"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.1"]
                    :inherit [:managed-dependencies]}
 
   ;; Abort when version ranges or version conflicts are detected in
