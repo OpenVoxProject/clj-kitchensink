@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/kitchensink "3.4.1"
+(defproject org.openvoxproject/kitchensink "3.4.2-SNAPSHOT"
   :description "Clojure utility functions"
   :url "https://github.com/openvoxproject/clj-kitchensink"
   :license {:name "Apache License, Version 2.0"
@@ -6,7 +6,7 @@
 
   :min-lein-version "2.9.1"
 
-  :parent-project {:coords [puppetlabs/clj-parent "5.6.14"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.0"]
                    :inherit [:managed-dependencies]}
 
   ;; Abort when version ranges or version conflicts are detected in
@@ -54,7 +54,7 @@
 
   :test-selectors {:default (complement :slow)
                    :slow :slow}
-  :deploy-repositories [["clojars" {:url "https://clojars.org/repo"
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/CLOJARS_USERNAME
                                      :password :env/CLOJARS_PASSWORD
                                      :sign-releases false}]])

@@ -803,7 +803,7 @@
              (core/inis-to-map tempdir))))))
 
 (deftest timeout-test
-  (let [wait-return (fn [time val] (Thread/sleep time) val)]
+  (let [wait-return (fn [^long time val] (Thread/sleep time) val)]
     (testing "core/with-timeout"
       (testing "does nothing if the body returns within the limit"
         (is (= true

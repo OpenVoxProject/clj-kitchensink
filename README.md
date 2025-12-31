@@ -23,6 +23,7 @@ The code is available in a separate "test" jar that you may depend on by using a
 ## License
 
 Copyright © 2013 Puppet Labs
+Copyright © 2025 Vox Pupuli
 
 Distributed under the [Apache License, version 2](http://www.apache.org/licenses/).
 
