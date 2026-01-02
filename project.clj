@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/kitchensink "3.4.4-SNAPSHOT"
+(defproject org.openvoxproject/kitchensink "3.5.0-SNAPSHOT"
   :description "Clojure utility functions"
   :url "https://github.com/openvoxproject/clj-kitchensink"
   :license {:name "Apache License, Version 2.0"
@@ -6,7 +6,7 @@
 
   :min-lein-version "2.9.1"
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.5.1"]
+  :parent-project {:coords [org.openvoxproject/clj-parent "7.6.0"]
                    :inherit [:managed-dependencies]}
 
   ;; Abort when version ranges or version conflicts are detected in
@@ -38,7 +38,7 @@
 
   ;; this plugin is used by jenkins jobs to interrogate the project version
   :plugins [[lein-project-version "0.1.0"]
-            [jonase/eastwood "1.2.2" :exclusions [org.clojure/clojure]]
+            [jonase/eastwood "1.4.3" :exclusions [org.clojure/clojure]]
             [lein-parent "0.3.9"]]
 
   :eastwood {:ignored-faults {:unused-ret-vals {puppetlabs.kitchensink.classpath [{:line 93}]}
