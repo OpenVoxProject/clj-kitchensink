@@ -1,4 +1,4 @@
-(defproject org.openvoxproject/kitchensink "3.5.2"
+(defproject org.openvoxproject/kitchensink "3.5.3-SNAPSHOT"
   :description "Clojure utility functions"
   :url "https://github.com/openvoxproject/clj-kitchensink"
   :license {:name "Apache License, Version 2.0"
