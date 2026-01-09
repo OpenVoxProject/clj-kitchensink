@@ -50,8 +50,8 @@
                                              puppetlabs.kitchensink.core-test true}
                               :reflection {puppetlabs.kitchensink.file [{:line 62}]
                                            puppetlabs.kitchensink.core [{:line 929}]}
-                              :constant-test {puppetlabs.kitchensink.core-test [{:line 726}
-                                                                                {:line 733}]}}
+                              :constant-test {puppetlabs.kitchensink.core-test [{:line 731}
+                                                                                {:line 738}]}}
              :continue-on-exception true}
 
   :test-selectors {:default (complement :slow)
