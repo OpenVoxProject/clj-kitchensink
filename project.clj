@@ -22,7 +22,7 @@
                  [org.clojure/tools.cli "1.0.206"]
 
                  [org.apache.commons/commons-compress "1.28.0"]
-                 [clj-time "0.11.0"]
+                 [clj-time "0.15.2"]
                  [clj-commons/fs "1.6.312"]
                  [slingshot "0.12.2"]
                  [cheshire "5.10.2"]
