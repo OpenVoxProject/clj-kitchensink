@@ -6,26 +6,29 @@
 
   :min-lein-version "2.9.1"
 
-  :parent-project {:coords [org.openvoxproject/clj-parent "7.6.3"]
-                   :inherit [:managed-dependencies]}
-
   ;; Abort when version ranges or version conflicts are detected in
   ;; dependencies. Also supports :warn to simply emit warnings.
   ;; requires lein 2.2.0+.
   :pedantic? :abort
 
-  :dependencies [[org.clojure/clojure]
-                 [org.clojure/tools.logging]
-                 [org.clojure/tools.cli]
+  ;; These are to enforce consistent versions across dependencies of dependencies,
+  ;; and to avoid having to define versions in multiple places. If a component
+  ;; defined under :dependencies ends up causing an error due to :pedantic? :abort,
+  ;; because it is a dep of a dep with a different version, move it here.
+  :managed-dependencies [[org.clojure/clojure "1.12.4"]]
 
-                 [org.apache.commons/commons-compress]
-                 [clj-time]
-                 [clj-commons/fs]
-                 [slingshot]
-                 [cheshire]
+  :dependencies [[org.clojure/clojure]
+                 [org.clojure/tools.logging "1.2.4"]
+                 [org.clojure/tools.cli "1.0.206"]
+
+                 [org.apache.commons/commons-compress "1.28.0"]
+                 [clj-time "0.11.0"]
+                 [clj-commons/fs "1.6.312"]
+                 [slingshot "0.12.2"]
+                 [cheshire "5.10.2"]
 
                  [org.ini4j/ini4j "0.5.4"]
-                 [org.tcrawley/dynapath]
+                 [org.tcrawley/dynapath "1.1.0"]
                  [digest "1.4.10"]]
 
   ;; By declaring a classifier here and a corresponding profile below we'll get an additional jar
@@ -38,8 +41,7 @@
 
   ;; this plugin is used by jenkins jobs to interrogate the project version
   :plugins [[lein-project-version "0.1.0"]
-            [jonase/eastwood "1.4.3" :exclusions [org.clojure/clojure]]
-            [lein-parent "0.3.9"]]
+            [jonase/eastwood "1.4.3" :exclusions [org.clojure/clojure]]]
 
   :eastwood {:ignored-faults {:unused-ret-vals {puppetlabs.kitchensink.classpath [{:line 93}]}
                               :deprecations {puppetlabs.kitchensink.classpath [{:line 66}
