@@ -25,7 +25,7 @@
                  [clj-time "0.11.0"]
                  [clj-commons/fs "1.6.312"]
                  [slingshot "0.12.2"]
-                 [cheshire "5.10.2"]
+                 [cheshire "5.13.0"]
 
                  [org.ini4j/ini4j "0.5.4"]
                  [org.tcrawley/dynapath "1.1.0"]
