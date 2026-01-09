@@ -19,7 +19,7 @@
 
   :dependencies [[org.clojure/clojure]
                  [org.clojure/tools.logging "1.3.1"]
-                 [org.clojure/tools.cli "1.0.206"]
+                 [org.clojure/tools.cli "1.3.250"]
 
                  [org.apache.commons/commons-compress "1.28.0"]
                  [clj-time "0.15.2"]
