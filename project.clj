@@ -18,7 +18,7 @@
   :managed-dependencies [[org.clojure/clojure "1.12.4"]]
 
   :dependencies [[org.clojure/clojure]
-                 [org.clojure/tools.logging "1.2.4"]
+                 [org.clojure/tools.logging "1.3.1"]
                  [org.clojure/tools.cli "1.0.206"]
 
                  [org.apache.commons/commons-compress "1.28.0"]
