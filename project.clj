@@ -19,7 +19,7 @@
 
   :dependencies [[org.clojure/clojure]
                  [org.clojure/tools.logging "1.3.1"]
-                 [org.clojure/tools.cli "1.0.206"]
+                 [org.clojure/tools.cli "1.3.250"]
 
                  [org.apache.commons/commons-compress "1.28.0"]
                  [clj-time "0.15.2"]
@@ -50,8 +50,8 @@
                                              puppetlabs.kitchensink.core-test true}
                               :reflection {puppetlabs.kitchensink.file [{:line 62}]
                                            puppetlabs.kitchensink.core [{:line 929}]}
-                              :constant-test {puppetlabs.kitchensink.core-test [{:line 726}
-                                                                                {:line 733}]}}
+                              :constant-test {puppetlabs.kitchensink.core-test [{:line 731}
+                                                                                {:line 738}]}}
              :continue-on-exception true}
 
   :test-selectors {:default (complement :slow)
