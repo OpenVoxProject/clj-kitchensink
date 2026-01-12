@@ -11,25 +11,35 @@
   ;; requires lein 2.2.0+.
   :pedantic? :abort
 
-  ;; These are to enforce consistent versions across dependencies of dependencies,
-  ;; and to avoid having to define versions in multiple places. If a component
-  ;; defined under :dependencies ends up causing an error due to :pedantic? :abort,
-  ;; because it is a dep of a dep with a different version, move it here.
-  :managed-dependencies [[org.clojure/clojure "1.12.4"]]
+  ;; Generally, try to keep version pins in :managed-dependencies and the libraries
+  ;; this project actually uses in :dependencies, inheriting the version from
+  ;; :managed-dependencies. This prevents endless version conflicts due to deps of deps.
+  ;; Renovate should keep the versions largely in sync between projects.
+  :managed-dependencies [[org.clojure/clojure "1.12.4"]
+                         [org.clojure/tools.cli "1.3.250"]
+                         [org.clojure/tools.logging "1.3.1"]
+                         
+                         [cheshire "5.13.0"]
+                         [clj-commons/fs "1.6.312"]
+                         [clj-time "0.15.2"]
+                         [digest "1.4.10"]
+                         [org.apache.commons/commons-compress "1.28.0"]
+                         [org.ini4j/ini4j "0.5.4"]
+                         [org.tcrawley/dynapath "1.1.0"]
+                         [slingshot "0.12.2"]]
 
   :dependencies [[org.clojure/clojure]
-                 [org.clojure/tools.logging "1.3.1"]
-                 [org.clojure/tools.cli "1.3.250"]
-
-                 [org.apache.commons/commons-compress "1.28.0"]
-                 [clj-time "0.15.2"]
-                 [clj-commons/fs "1.6.312"]
-                 [slingshot "0.12.2"]
-                 [cheshire "5.13.0"]
-
-                 [org.ini4j/ini4j "0.5.4"]
-                 [org.tcrawley/dynapath "1.1.0"]
-                 [digest "1.4.10"]]
+                 [org.clojure/tools.cli]
+                 [org.clojure/tools.logging]
+                
+                 [cheshire]
+                 [digest]
+                 [clj-commons/fs]
+                 [clj-time]
+                 [org.apache.commons/commons-compress]
+                 [org.ini4j/ini4j]
+                 [org.tcrawley/dynapath]
+                 [slingshot]]
 
   ;; By declaring a classifier here and a corresponding profile below we'll get an additional jar
   ;; during `lein jar` that has all the code in the test/ directory. Downstream projects can then
