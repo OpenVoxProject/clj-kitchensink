@@ -19,7 +19,7 @@
                          [org.clojure/tools.cli "1.3.250"]
                          [org.clojure/tools.logging "1.3.1"]
                          
-                         [cheshire "5.13.0"]
+                         [cheshire "6.1.0"]
                          [clj-commons/fs "1.6.312"]
                          [clj-time "0.15.2"]
                          [digest "1.4.10"]
