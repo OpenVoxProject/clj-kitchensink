@@ -21,7 +21,6 @@
                          
                          [cheshire "5.13.0"]
                          [clj-commons/fs "1.6.312"]
-                         [clj-time "0.15.2"]
                          [digest "1.4.10"]
                          [org.apache.commons/commons-compress "1.28.0"]
                          [org.ini4j/ini4j "0.5.4"]
@@ -35,7 +34,6 @@
                  [cheshire]
                  [digest]
                  [clj-commons/fs]
-                 [clj-time]
                  [org.apache.commons/commons-compress]
                  [org.ini4j/ini4j]
                  [org.tcrawley/dynapath]
@@ -60,8 +58,8 @@
                                              puppetlabs.kitchensink.core-test true}
                               :reflection {puppetlabs.kitchensink.file [{:line 62}]
                                            puppetlabs.kitchensink.core [{:line 929}]}
-                              :constant-test {puppetlabs.kitchensink.core-test [{:line 731}
-                                                                                {:line 738}]}}
+                              :constant-test {puppetlabs.kitchensink.core-test [{:line 716}
+                                                                                {:line 723}]}}
              :continue-on-exception true}
 
   :test-selectors {:default (complement :slow)
