@@ -1,6 +1,5 @@
 (ns puppetlabs.kitchensink.core-test
-  (:require [clj-time.core :as t]
-            [clojure.string :as string]
+  (:require [clojure.string :as string]
             [clojure.test :refer :all]
             [clojure.zip :as zip]
             [me.raynes.fs :as fs]
@@ -8,7 +7,7 @@
             [puppetlabs.kitchensink.testutils :as testutils]
             [slingshot.slingshot :refer [try+]])
   (:import (java.io ByteArrayInputStream File)
-           (java.time Month ZonedDateTime)
+           (java.time Duration Month ZonedDateTime)
            (java.time.format DateTimeParseException)
            (java.util ArrayList)))
 
@@ -42,20 +41,6 @@
   (is (core/regexp? #"test"))
   (testing "should return false if string"
     (is (not (core/regexp? "test")))))
-
-(deftest datetime?-test
-  (testing "should return false for non-coercible types"
-    (is (not (core/datetime? 2.0))))
-  (testing "should return false for nil"
-    (is (not (core/datetime? nil))))
-  (testing "should return true for a valid string"
-    (is (core/datetime? "2011-01-01T12:00:00-03:00")))
-  (testing "should return false for an invalid string"
-    (is (not (core/datetime? "foobar"))))
-  (testing "should return true for a valid integer"
-    (is (core/datetime? 20)))
-  (testing "should return false for an invalid integer")
-  (is (not (core/datetime? -9999999999999999999999999999999))))
 
 (deftest zipper?-test
   (testing "should return true for zippers"
@@ -848,13 +833,13 @@
 
 (deftest parse-interval-test
   (are [x y] (= x (core/parse-interval y))
-    (t/seconds 11) "11s"
-    (t/minutes 12) "12m"
-    (t/hours 13) "13h"
-    (t/days 14) "14d"
-    (t/years 15) "15y"
-    (t/seconds 0) "0"
-    (t/seconds 10) "10"
+    (Duration/ofSeconds 11) "11s"
+    (Duration/ofMinutes 12) "12m"
+    (Duration/ofHours 13) "13h"
+    (Duration/ofDays 14) "14d"
+    (Duration/ofDays (* 15 365)) "15y"
+    (Duration/ofSeconds 0) "0"
+    (Duration/ofSeconds 10) "10"
     nil "15a"
     nil "h"
     nil "12hhh"

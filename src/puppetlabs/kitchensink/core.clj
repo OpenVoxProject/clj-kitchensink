@@ -6,10 +6,7 @@
 
 (ns puppetlabs.kitchensink.core
   (:refer-clojure :exclude [boolean? uuid?])
-  (:require [clj-time.coerce :as time-coerce]
-            [clj-time.core :as time]
-            [clj-time.format :as time-format]
-            [clojure.java.io :as io]
+  (:require [clojure.java.io :as io]
             [clojure.pprint :as pprint]
             [clojure.set :as set]
             [clojure.string :as string]
@@ -19,7 +16,7 @@
             [me.raynes.fs :as fs]
             [slingshot.slingshot :refer [throw+]])
   (:import (java.io File Reader StringWriter)
-           (java.time ZoneId ZoneOffset ZonedDateTime)
+           (java.time Duration ZoneId ZoneOffset ZonedDateTime)
            (java.time.format DateTimeFormatter)
            javax.naming.ldap.LdapName
            (javax.naming.ldap Rdn)
@@ -38,14 +35,6 @@
   (some-> x
     (class)
     (.isArray)))
-
-(defn datetime?
-  "Predicate returning whether or not the supplied object is
-  convertible to a Joda DateTime"
-  [x]
-  (and
-    (satisfies? time-coerce/ICoerce x)
-    (time-coerce/to-date-time x)))
 
 (defn boolean?
   "Returns true if the value is a boolean"
@@ -612,16 +601,6 @@ to be a zipper."
     (map sort-nested-maps data)
     :else data))
 
-;; ## Date and Time
-
-(defn timestamp
-  "Returns a timestamp string for the given `time`, or the current time if none
-  is provided. The format of the timestamp is eg. 2012-02-23T22:01:39.539Z."
-  ([]
-   (timestamp (time/now)))
-  ([time]
-   (time-format/unparse (time-format/formatters :date-time) time)))
-
 ;; ## Exception handling
 
 (defn without-ns
@@ -1166,11 +1145,11 @@ to be a zipper."
 
 (defn parse-interval
   "Given a time string of the form \"<number>\", or \"<number><unit>\", this
-  function parses this time amount and returns a joda time Period instance.
+  function parses this time amount and returns a java.time.Duration instance.
   If the unit is left off, the units are assumed to be time/seconds
 
-  Example: \"12h\" -> (clj-time.core/hours 12)
-  Example: \"12\" -> (clj-time.core/seconds 12)
+  Example: \"12h\" -> (Duration/ofHours 12)
+  Example: \"12\" -> (Duration/ofSeconds 12)
 
   Possible units: s(econds), m(inutes), h(ours), d(ays), y(ears)
 
@@ -1180,12 +1159,12 @@ to be a zipper."
     (when-let [[_ num unit] (re-matches #"^(\d+)([smhdy]?)$" time-str)]
       (let [num (parse-int num)
             time-fn (case unit
-                      "s" time/seconds
-                      "m" time/minutes
-                      "h" time/hours
-                      "d" time/days
-                      "y" time/years
-                      "" time/seconds)]
+                      "s" #(Duration/ofSeconds %)
+                      "m" #(Duration/ofMinutes %)
+                      "h" #(Duration/ofHours %)
+                      "d" #(Duration/ofDays %)
+                      "y" #(Duration/ofDays (* 365 %))
+                      ""  #(Duration/ofSeconds %))]
         (time-fn num)))))
 
 ;; ## HTTP Headers
