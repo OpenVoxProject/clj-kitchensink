@@ -435,7 +435,6 @@
 (deftest stream-hashing
   (testing "Computing a SHA-256 hash for an input stream"
     (testing "should fail if not passed an input stream"
-      #_ {:clj-kondo/ignore [:type-mismatch]}
       (is (thrown? AssertionError (core/stream->sha256 "what"))))
 
     (let [stream-fn #(ByteArrayInputStream. (.getBytes "foobar" "UTF-8"))]
@@ -646,6 +645,7 @@
     (is (thrown? AssertionError (core/bounded-memoize identity -1)))
     (is (thrown? AssertionError (core/bounded-memoize identity 0)))
     (is (thrown? AssertionError (core/bounded-memoize identity 1.5)))
+    #_ {:clj-kondo/ignore [:type-mismatch]}
     (is (thrown? AssertionError (core/bounded-memoize identity "five"))))
 
   (testing "with a legal bound"
