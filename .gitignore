@@ -7,3 +7,7 @@ pom.xml
 .lein-failures
 .clj-kondo/.cache/
 .eastwood
+/.bundle
+/.vendor
+/vendor
+/Gemfile.lock
