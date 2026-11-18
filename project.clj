@@ -17,7 +17,7 @@
   ;; Renovate should keep the versions largely in sync between projects.
   :managed-dependencies [[org.clojure/clojure "1.12.6"]
                          [org.clojure/tools.cli "1.4.256"]
-                         [org.clojure/tools.logging "1.3.1"]
+                         [org.clojure/tools.logging "1.3.2"]
                          
                          [cheshire "6.2.1"]
                          [clj-commons/fs "1.6.312"]
